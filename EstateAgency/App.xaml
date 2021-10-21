@@ -1,0 +1,45 @@
+﻿<Application x:Class="EstateAgency.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:EstateAgency"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="blue_1" Color="#04A0FF"/>
+        <Style x:Key="ButtonMenu" TargetType="Button">
+            <Setter Property="Margin" Value="10, 5, 10,5"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Background" Value="{StaticResource blue_1}"/>
+        </Style>
+        <Style x:Key="ButtonAgent" TargetType="Button">
+            <Setter Property="Margin" Value="10 , 0"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="100"/>
+        </Style>
+        
+        <Style x:Key="ButtonRealEstate" TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="100"/>
+        </Style>
+        <Style x:Key="ButtonSPEl" TargetType="Button">
+            <Setter Property="Margin" Value="5,5,5,0"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
+        <Style x:Key="TextBlockSPEl" TargetType="TextBlock">
+            <Setter Property="Margin" Value="5,5,5,0"/>
+        </Style>
+        <Style x:Key="TextBoxSPEl" TargetType="TextBox">
+            <Setter Property="Margin" Value="5,0,5,0"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
+        <Style x:Key="TextBoxRealEstate" TargetType="TextBox">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="120"/>
+        </Style>
+        <Style x:Key="SPCreate" TargetType="StackPanel">
+            <Setter Property="Width" Value="150"/>
+        </Style>
+    </Application.Resources>
+</Application>

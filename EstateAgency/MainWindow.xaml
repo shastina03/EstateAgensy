@@ -1,0 +1,20 @@
+﻿<Window x:Class="EstateAgency.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EstateAgency"
+        mc:Ignorable="d"
+        Title="Main menu" Height="480" Width="600">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center">
+            <Image Source="Assets\Images\logo.png" Margin="10" Width="300"/>
+            <Button Content="Manage agent" Name="BtnAgent" Click="BtnAgent_Click" Style="{StaticResource ButtonMenu}"/>
+            <Button Content="Manage clients" Name="BtnClient" Click="BtnClient_Click" Style="{StaticResource ButtonMenu}" />
+            <Button Content="Manage real estate" Name="BtnRealEstate" Click="BtnRealEstate_Click" Style="{StaticResource ButtonMenu}"/>
+            <Button Content="Manage supplies" Name="BtnSupplies" Click="BtnSupplies_Click" Style="{StaticResource ButtonMenu}"/>
+            <Button Content="Manage demands" Name="BtnDemands" Click="BtnDemands_Click"  Style="{StaticResource ButtonMenu}"/>
+            <Button Content="Manage deals" Style="{StaticResource ButtonMenu}"/>
+        </StackPanel>
+    </Grid>
+</Window>

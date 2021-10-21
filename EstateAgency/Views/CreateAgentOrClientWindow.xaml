@@ -1,0 +1,44 @@
+﻿<Window x:Class="EstateAgency.Views.CreateAgentOrClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EstateAgency.Views"
+        mc:Ignorable="d"
+        Title="CreateAgentOrClient" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Style="{StaticResource SPCreate}">
+                    <TextBlock Text="First name" Style="{StaticResource TextBlockSPEl}"/>
+                    <TextBox x:Name="TbFirstName" Style="{StaticResource TextBoxSPEl}"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource SPCreate}">
+                    <TextBlock Text="Middle name" Style="{StaticResource TextBlockSPEl}"/>
+                    <TextBox x:Name="TbMiddleName"  Style="{StaticResource TextBoxSPEl}"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource SPCreate}">
+                    <TextBlock Text="Last name" Style="{StaticResource TextBlockSPEl}"/>
+                    <TextBox x:Name="TbLastName"  Style="{StaticResource TextBoxSPEl}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Name="SpClient">
+                    <StackPanel Style="{StaticResource SPCreate}" Visibility="{Binding ElementName=window, Path=TBVisibility}">
+                        <TextBlock Text="Phone" Style="{StaticResource TextBlockSPEl}"/>
+                        <TextBox x:Name="TbPhone"  Style="{StaticResource TextBoxSPEl}"/>
+                    </StackPanel>
+                    <StackPanel Style="{StaticResource SPCreate}">
+                        <TextBlock Text="Email" Style="{StaticResource TextBlockSPEl}"/>
+                        <TextBox x:Name="TbEmail"  Style="{StaticResource TextBoxSPEl}"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Style="{StaticResource SPCreate}" Name="SpAgent">
+                    <TextBlock Text="Deal Share" Style="{StaticResource TextBlockSPEl}"/>
+                    <TextBox x:Name="TbDealShare"  Style="{StaticResource TextBoxSPEl}"/>
+                </StackPanel>
+            </StackPanel>
+            <Button x:Name="BtnSave" Content="Save and close" Width="120" HorizontalAlignment="Left" Margin="5,10" Click="BtnSave_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,68 @@
+﻿<Window x:Class="EstateAgency.Views.CreateRealEstateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EstateAgency.Views"
+        mc:Ignorable="d"
+        Title="CreateRealEstate" Height="450" Width="800">
+    <Grid Margin="10">
+        <StackPanel >
+            <TextBlock Text="Address"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <StackPanel Margin="5,0">
+                    <TextBlock Text="City"/>
+                    <TextBox x:Name="TbCity" Style="{StaticResource TextBoxRealEstate}"/>
+                </StackPanel>
+                <StackPanel Margin="5,0">
+                    <TextBlock Text="Street"/>
+                    <TextBox x:Name="TbStreet" Style="{StaticResource TextBoxRealEstate}"/>
+                </StackPanel>
+                <StackPanel Margin="5,0">
+                    <TextBlock Text="House"/>
+                    <TextBox x:Name="TbHouse" Style="{StaticResource TextBoxRealEstate}"/>
+                </StackPanel>
+                <StackPanel Margin="5,0">
+                    <TextBlock Text="Number"/>
+                    <TextBox x:Name="TbNumber" Style="{StaticResource TextBoxRealEstate}"/>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock Text="Coordinate"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <StackPanel Margin="5,0">
+                    <TextBlock Text="LongTitude"/>
+                    <TextBox x:Name="TbLongTitude" Style="{StaticResource TextBoxRealEstate}"/>
+                </StackPanel>
+                <StackPanel Margin="5,0">
+                    <TextBlock Text="Latitude"/>
+                    <TextBox x:Name="TbLatitude" Style="{StaticResource TextBoxRealEstate}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <StackPanel Margin="5,0">
+                    <TextBlock Text="Total area"/>
+                    <TextBox x:Name="TbTotalArea" Style="{StaticResource TextBoxRealEstate}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Name="SpApartment">
+                    <StackPanel Margin="5,0" >
+                        <TextBlock Text="Rooms"/>
+                        <TextBox x:Name="TbRooms" Style="{StaticResource TextBoxRealEstate}"/>
+                    </StackPanel>
+                    <StackPanel Margin="5,0" >
+                        <TextBlock Text="Floor" />
+                        <TextBox x:Name="TbFloor" Style="{StaticResource TextBoxRealEstate}"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Name="SpHouse">
+                    <StackPanel Margin="5,0" >
+                        <TextBlock Text="Floors"/>
+                        <TextBox x:Name="TbFloors" Style="{StaticResource TextBoxRealEstate}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <Button Content="Save and close" Name="BtnSave" Click="BtnSave_Click" Style="{StaticResource ButtonRealEstate}" HorizontalAlignment="Left"/>
+        </StackPanel>
+    </Grid>
+</Window>

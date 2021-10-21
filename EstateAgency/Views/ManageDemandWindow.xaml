@@ -1,0 +1,201 @@
+﻿<Window x:Class="EstateAgency.Views.ManageDemandWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EstateAgency.Views"
+        mc:Ignorable="d"
+        Title="ManageDemandWindow" Height="500" Width="1350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="202*"/>
+            <RowDefinition Height="267*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Width="150" Margin="10,5">
+                    <TextBlock Text="Client" Style="{StaticResource TextBlockSPEl}"/>
+                    <ComboBox Name="CbClient" SelectionChanged="CbClient_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate >
+                                <TextBlock Text="{Binding PersonSet.FullName}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Width="150" Margin="10,5">
+                    <TextBlock Text="Agent" Style="{StaticResource TextBlockSPEl}"/>
+                    <ComboBox Name="CbAgent" SelectionChanged="CbAgent_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate >
+                                <TextBlock Text="{Binding PersonSet.FullName}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Width="100" Margin="10,5">
+                    <TextBlock Text="RealEstate" Style="{StaticResource TextBlockSPEl}"/>
+                    <ComboBox Name="CbRealState" SelectionChanged="CbRealState_SelectionChanged">
+                        <ComboBoxItem Content="Not select"/>
+                        <ComboBoxItem Content="Apartment"/>
+                        <ComboBoxItem Content="House"/>
+                        <ComboBoxItem Content="Land"/>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock Text="Address" Margin="10,5,0,0"/>
+            <StackPanel Orientation="Horizontal" Margin="10,0">
+                <StackPanel Margin="0,0,5,0">
+                    <TextBlock Text="City"/>
+                    <TextBox x:Name="TbCityFilt" Style="{StaticResource TextBoxRealEstate}"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,5,0">
+                    <TextBlock Text="Street"/>
+                    <TextBox x:Name="TbStreetFilt" Style="{StaticResource TextBoxRealEstate}"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,5,0">
+                    <TextBlock Text="House"/>
+                    <TextBox x:Name="TbHouseFilt" Style="{StaticResource TextBoxRealEstate}"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,5,0">
+                    <TextBlock Text="Number"/>
+                    <TextBox x:Name="TbNumberFilt" Style="{StaticResource TextBoxRealEstate}"/>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock Text="Price" Margin="10,5,0,0"/>
+            <StackPanel Orientation="Horizontal" Margin="10,0">
+                <StackPanel Width="120" Margin="0,0,5,0">
+                    <TextBlock Text="Min"/>
+                    <TextBox x:Name="TbMinPriceFilt" Style="{StaticResource TextBoxRealEstate}"/>
+                </StackPanel>
+                <StackPanel Width="120">
+                    <TextBlock Text="Max"/>
+                    <TextBox x:Name="TbMaxPriceFilt" Style="{StaticResource TextBoxRealEstate}"/>
+                </StackPanel>
+                <Button Content="Filt" Name="BtnFilt" VerticalAlignment="Bottom" Margin="10,0" Style="{StaticResource ButtonRealEstate}" Click="BtnFilt_Click"/>
+
+            </StackPanel>
+            <CheckBox Content="Show demands with deals" IsChecked="True" Margin="10,5,0,0"/>
+            <DataGrid Name="DgDemands" SelectionMode="Single" IsReadOnly="True" AutoGenerateColumns="False" Margin="10" DockPanel.Dock="Top" Height="200" SelectionChanged="DgSupplies_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Type" Width="Auto" Binding="{Binding RealEstateFilterSet.Type}" />
+                    <DataGridTextColumn Header="Client" Binding="{Binding PersonSet_Client.PersonSet.FullName}"/>
+                    <DataGridTextColumn Header="Agent" Binding="{Binding PersonSet_Agent.PersonSet.FullName}"/>
+                    <DataGridTextColumn Header="Address"  Binding="{Binding Address}"/>
+                    <DataGridTextColumn Header="Max price"  Binding="{Binding MaxPrice}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal" Margin="5,0">
+                <Button Content="New" Style="{StaticResource ButtonRealEstate}"/>
+                <Button Content="Search supplie" Style="{StaticResource ButtonRealEstate}"/>
+                <Button Content="Delete" Name="BtnDelete" Click="BtnDelete_Click" Style="{StaticResource ButtonRealEstate}" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Name="SpDmInfo">
+            <StackPanel Orientation="Horizontal" Margin="10,0">
+                <StackPanel Margin="0,0,5,0">
+                    <TextBlock Text="Agent"/>
+                    <TextBox x:Name="TbAgent" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,5,0">
+                    <TextBlock Text="Client"/>
+                    <TextBox x:Name="TbClient" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,5,0">
+                    <TextBlock Text="Real estate"/>
+                    <TextBox x:Name="TbRealEstate" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock Text="Address" Margin="10,0"/>
+            <StackPanel Orientation="Horizontal" Margin="10,0">
+                <StackPanel Margin="0,0,5,0">
+                    <TextBlock Text="City"/>
+                    <TextBox x:Name="TbCity" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,5,0">
+                    <TextBlock Text="Street"/>
+                    <TextBox x:Name="TbStreet" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,5,0">
+                    <TextBlock Text="House"/>
+                    <TextBox x:Name="TbHouse" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,5,0">
+                    <TextBlock Text="Number"/>
+                    <TextBox x:Name="TbNumber" Width="100" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock Text="Price" Margin="10,5,0,0"/>
+            <StackPanel Orientation="Horizontal" Margin="10,0">
+                <StackPanel Width="120" Margin="0,0,5,0">
+                    <TextBlock Text="Min"/>
+                    <TextBox x:Name="TbMinPrice" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Width="120">
+                    <TextBlock Text="Max"/>
+                    <TextBox x:Name="TbMaxPrice" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <TextBlock Text="Total area" Margin="0,5,0,0"/>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="0,0,5,0">
+                    <TextBlock Text="Min"/>
+                    <TextBox x:Name="TbMinTotalArea" Width="100" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,5,0">
+                    <TextBlock Text="Max"/>
+                    <TextBox x:Name="TbMaxTotalArea" Width="100" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel x:Name="SpApartment">
+                <TextBlock Text="Rooms" Margin="0,5,0,0"/>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Margin="0,0,5,0">
+                        <TextBlock Text="Min"/>
+                        <TextBox x:Name="TbMinRooms" Width="100" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,5,0">
+                        <TextBlock Text="Max"/>
+                        <TextBox x:Name="TbMaxRooms" Width="100" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                    </StackPanel>
+                </StackPanel>
+                <TextBlock Text="Floor" Margin="0,5,0,0"/>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="0,0,5,0">
+                            <TextBlock Text="Min"/>
+                            <TextBox x:Name="TbMinFloor" Width="100" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,5,0">
+                            <TextBlock Text="Max"/>
+                            <TextBox x:Name="TbMaxFloor" Width="100" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel x:Name="SpHouse">
+                <TextBlock Text="Floors" Margin="0,5,0,0"/>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="0,0,5,0">
+                            <TextBlock Text="Min"/>
+                            <TextBox x:Name="TbMinFloors" Width="100" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,5,0">
+                            <TextBlock Text="Max"/>
+                            <TextBox x:Name="TbMaxFloors" Width="100" Style="{StaticResource TextBoxRealEstate}" IsReadOnly="True"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>
